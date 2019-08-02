@@ -1,0 +1,46 @@
+server:
+  port: 8989
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  freemarker:
+    templateLoaderPath: classpath:/templates/
+    suffix: .ftl
+    charset: UTF-8
+    request-context-attribute: request
+    settings:
+      number_format: 0.##########
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/xxl_job?Unicode=true&characterEncoding=UTF-8
+    username: xxl_job_user
+    password: xxlJobTest123
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      max-wait: 10000
+      max-active: 30
+      test-on-borrow: true
+      validation-query: SELECT 1
+      validation-interval: 30000
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: xxx@qq.com
+    password: xxx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
+xxl:
+  job:
+    accessToken: 123456
+    i18n: 
