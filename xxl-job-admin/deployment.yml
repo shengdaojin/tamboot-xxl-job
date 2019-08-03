@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: tamboot-xxljob-admin
-    environment: product
     tier: middleware
   name: tamboot-xxljob-admin
   namespace: middleware
@@ -32,7 +31,7 @@ spec:
         image: >-
           registry-vpc.cn-shenzhen.aliyuncs.com/registry_tam/tamboot-xxljob-admin:1.0.0-SNAPSHOT
         imagePullPolicy: Always
-        name: cobroo-xxljob-server
+        name: tamboot-xxljob-admin
         resources:
           requests:
             cpu: 100m
@@ -64,12 +63,12 @@ metadata:
   annotations:
     service.beta.kubernetes.io/alicloud-loadbalancer-address-type: intranet
     service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
-    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-bp1pwbgq1ir9mf822tmvm
+    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-wz9tp13tav4ecl4fbnnfc
   name: tamboot-xxljob-admin-service
   namespace: middleware
 spec:
   ports:
-  - name: tamboot-xxljob-admin-service
+  - name: http
     port: 8989
     protocol: TCP
     targetPort: 8989
