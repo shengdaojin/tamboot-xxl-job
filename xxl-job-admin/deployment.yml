@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: tamboot-xxljob-admin
-    tier: middleware
   name: tamboot-xxljob-admin
   namespace: middleware
 spec:
@@ -15,6 +14,7 @@ spec:
     metadata:
       labels:
         app: tamboot-xxljob-admin
+        buildVersion: build-${BUILD_ID}
     spec:
       containers:
       - command:
